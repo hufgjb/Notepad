@@ -35,6 +35,9 @@ namespace NotePad
             this.btnSave = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.btnUndo = new System.Windows.Forms.Button();
+            this.listUndo = new System.Windows.Forms.ListBox();
+            this.btnRedo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // rtbText
@@ -45,6 +48,7 @@ namespace NotePad
             this.rtbText.Size = new System.Drawing.Size(598, 336);
             this.rtbText.TabIndex = 0;
             this.rtbText.Text = "";
+            this.rtbText.TextChanged += new System.EventHandler(this.rtbText_TextChanged);
             // 
             // btnOpen
             // 
@@ -60,7 +64,7 @@ namespace NotePad
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnSave.Location = new System.Drawing.Point(200, 21);
+            this.btnSave.Location = new System.Drawing.Point(171, 21);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(143, 50);
             this.btnSave.TabIndex = 2;
@@ -72,11 +76,46 @@ namespace NotePad
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // btnUndo
+            // 
+            this.btnUndo.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnUndo.Location = new System.Drawing.Point(320, 21);
+            this.btnUndo.Name = "btnUndo";
+            this.btnUndo.Size = new System.Drawing.Size(143, 50);
+            this.btnUndo.TabIndex = 3;
+            this.btnUndo.Text = "Undo";
+            this.btnUndo.UseVisualStyleBackColor = true;
+            this.btnUndo.Click += new System.EventHandler(this.btnUndo_Click);
+            // 
+            // listUndo
+            // 
+            this.listUndo.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.listUndo.FormattingEnabled = true;
+            this.listUndo.ItemHeight = 19;
+            this.listUndo.Location = new System.Drawing.Point(626, 16);
+            this.listUndo.Name = "listUndo";
+            this.listUndo.Size = new System.Drawing.Size(162, 422);
+            this.listUndo.TabIndex = 4;
+            // 
+            // btnRedo
+            // 
+            this.btnRedo.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnRedo.Location = new System.Drawing.Point(469, 21);
+            this.btnRedo.Name = "btnRedo";
+            this.btnRedo.Size = new System.Drawing.Size(143, 50);
+            this.btnRedo.TabIndex = 5;
+            this.btnRedo.Text = "Redo";
+            this.btnRedo.UseVisualStyleBackColor = true;
+            this.btnRedo.Click += new System.EventHandler(this.btnRedo_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnRedo);
+            this.Controls.Add(this.listUndo);
+            this.Controls.Add(this.btnUndo);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnOpen);
             this.Controls.Add(this.rtbText);
@@ -93,6 +132,9 @@ namespace NotePad
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Button btnUndo;
+        private System.Windows.Forms.ListBox listUndo;
+        private System.Windows.Forms.Button btnRedo;
     }
 }
 
